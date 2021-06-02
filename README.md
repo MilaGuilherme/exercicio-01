@@ -1,4 +1,4 @@
-# exercicio-01
+# Exercicios em Vue - PUC Especialização Desenvolvimento Full Stack
 
 ## Project setup
 ```
