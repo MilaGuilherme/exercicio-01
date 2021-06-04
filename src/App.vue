@@ -1,55 +1,51 @@
 <template>
   <div id="app">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <Top :items="topItems"/>
-  <Navbar :items="items"/>
-  <main>
-    <Articles :articles="articles"/>
-    <Sidebar :items="sidebarItems"/>
-  </main>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <Top :items="topItems" />
+    <Navbar :items="items" />
+    <Exercicio02 />
   </div>
 </template>
 
 <script>
-import Top from './components/Top';
-import Sidebar from './components/Sidebar';
-import Articles from './components/Articles';
-import Navbar from './components/Navbar';
+import Top from "./components/AppTop/Top/Top";
+import Navbar from "./components/AppTop/Navbar/Navbar";
+//import Index from './pages/Index';
+// import Exercicio01 from './pages/Exercicio01';
+import Exercicio02 from "./pages/Exercicio02";
 export default {
-  name: 'App',
-  components:{
+  name: "App",
+  components: {
     Navbar,
     Top,
-    Sidebar,
-    Articles
+    Exercicio02,
   },
-  data(){
-    return{
-      items: ["Home","Página 1","Página 2","Página 3","Página 4","Página 5"],
-      topItems: ["Topic 1","Topic 2","Topic 3"],
-      articles: [
-        {img:"https://via.placeholder.com/150x150",title:"Article 1",text:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."},
-        {img:"https://via.placeholder.com/150x150",title:"Article 2",text:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."},
-        {img:"https://via.placeholder.com/150x150",title:"Article 3",text:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."}
-        ],
-      sidebarItems: ["Link 1","Link 2","Link 3","Link 4","Link 5","Link 6"],
-    }
+  data() {
+    return {
+      items: [
+        { name: "Home", path: "index" },
+        { name: "Exercício 01", path: "exercicio01" },
+        { name: "Exercício 02", path: "exercicio01" },
+        { name: "Exercício 03", path: "exercicio03" },
+      ],
+      topItems: ["Topic 1", "Topic 2", "Topic 3"],
+    };
   },
   props: {
-    msg: String
-  }
-}
+    msg: String,
+  },
+};
 </script>
 
 <style>
-*{
-  padding:0;
-  margin:0;
-}
-main{
-  display: flex !important;
-  flex-grow:1;
-  flex-direction: row;
+* {
+  padding: 0;
+  margin: 0;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -57,7 +53,7 @@ main{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  height:100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }

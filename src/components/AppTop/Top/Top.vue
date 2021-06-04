@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import SearchBar from "./SearchBar";
+import SearchBar from "../../SearchBar";
 import TopBar from "./TopBar";
 export default {
     components: {

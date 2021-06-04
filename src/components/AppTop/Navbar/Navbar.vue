@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <div v-for="item in items" :key="item">
+    <div v-for="item in items" :key="item.index">
         <NavbarItem :item="item"/>
     </div>
   </div>

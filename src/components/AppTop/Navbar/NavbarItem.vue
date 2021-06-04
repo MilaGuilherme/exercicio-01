@@ -1,13 +1,13 @@
 <template>
     <div class="navItem">
-        <a :href="`#`">{{item}}</a>
+        <a :href="item.path">{{item.name}}</a>
     </div>
 </template>
 
 <script>
 export default {
     props:{
-        item:String,
+        item:Object
     },
 };
 </script>

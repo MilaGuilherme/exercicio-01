@@ -5,8 +5,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <div class="search-container">
-      <form action="/">
-        <input type="text" placeholder="Search.." name="search" />
+      <form @submit.prevent="onSearch">
+        <input type="text" v-model="term" name="search" />
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
@@ -14,7 +14,21 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return{
+      term:"Search",
+    }
+  },
+  props:{
+    searchTerm:Function,
+  },
+  methods:{
+    onSearch(){
+      this.searchTerm(this.term);
+    }
+  }
+};
 </script>
 
 <style scoped>
