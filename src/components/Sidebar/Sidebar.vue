@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <div v-for="item in items" :key="item">
+    <div v-for="item in items" :key="item.index">
       <a :href="`#`">{{ item }}</a>
     </div>
   </div>
@@ -9,7 +9,7 @@
 <script>
 export default {
   props: {
-    items: String,
+    items: Array,
   },
 };
 </script>

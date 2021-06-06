@@ -8,30 +8,26 @@
     />
     <Top :items="topItems" />
     <Navbar :items="items" />
-    <Exercicio02 />
+    <router-view/>
   </div>
 </template>
 
 <script>
 import Top from "./components/AppTop/Top/Top";
 import Navbar from "./components/AppTop/Navbar/Navbar";
-//import Index from './pages/Index';
-// import Exercicio01 from './pages/Exercicio01';
-import Exercicio02 from "./pages/Exercicio02";
 export default {
   name: "App",
   components: {
     Navbar,
-    Top,
-    Exercicio02,
+    Top
   },
   data() {
     return {
       items: [
         { name: "Home", path: "index" },
-        { name: "Exercício 01", path: "exercicio01" },
-        { name: "Exercício 02", path: "exercicio01" },
-        { name: "Exercício 03", path: "exercicio03" },
+        { name: "Exercício 01", path: "/exercicio01" },
+        { name: "Exercício 02", path: "/exercicio02" },
+        { name: "Exercício 03", path: "/exercicio03" },
       ],
       topItems: ["Topic 1", "Topic 2", "Topic 3"],
     };

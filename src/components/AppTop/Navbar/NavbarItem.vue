@@ -1,6 +1,6 @@
 <template>
     <div class="navItem">
-        <a :href="item.path">{{item.name}}</a>
+      <router-link :to="item.path">{{ item.name }}</router-link>
     </div>
 </template>
 

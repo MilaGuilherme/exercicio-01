@@ -1,32 +1,53 @@
 <template>
   <div id="products">
+    <div class="search">
+      <SearchBar :searchTerm="searchProducts" />
+    </div>
     <div id="productsList">
-      <div v-for="product in products" :key="product.index">
+      <div v-for="product in listedProducts" :key="product.index">
         <ProductItem :product="product" />
       </div>
     </div>
     <div id="productsSum">
-      {{productsSum}}
+      {{ productsSum }}
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import ProductItem from "./ProductItem.vue";
+import SearchBar from "../SearchBar.vue";
 export default {
   name: "ProductList",
-  props: {
-    products: Array,
+  data() {
+    return {
+    };
   },
+  props: {},
   components: {
     ProductItem,
+    SearchBar,
   },
-  data() {
-    return {};
+  methods:{
+    searchProducts(term) {
+      console.log(term)
+      const results = this.listedProducts.filter((p) => p.name.match(term));
+      if (results.length) {
+        this.listedProducts = results;
+      } else {
+        this.listedProducts = this.$store.getters.getProducts;
+      }
+    },
   },
   computed: {
+    ...mapGetters({
+      listedProducts: 'getProducts'
+    }),
     productsSum() {
-      return this.products.length >= 0 ? `Foram encontrados ${this.products.length} produtos` : "Não foram encontrados produtos"
+      return this.listedProducts.length >= 0
+        ? `Foram encontrados ${this.listedProducts.length} produtos`
+        : "Não foram encontrados produtos";
     },
   },
 };
@@ -50,5 +71,9 @@ export default {
 }
 p {
   text-align: left;
+}
+.search {
+  background-color: #f3f3f3;
+  padding: 20px;
 }
 </style>

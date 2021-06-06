@@ -25,7 +25,9 @@ export default {
   methods: {
     onFormSubmit() {
       const product = { name: this.product, price: this.price };
-      this.createProduct(product);
+      this.$store.dispatch('insertProduct',product)
+      this.product= ""
+      this.price= ""
     },
   },
   props: {

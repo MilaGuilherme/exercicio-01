@@ -6,7 +6,7 @@
     />
     <div class="search-container">
       <form @submit.prevent="onSearch">
-        <input type="text" v-model="term" name="search" />
+        <input type="text" v-on:keyup="onSearch" v-model="term" name="search" placeholder="Search" />
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
@@ -17,7 +17,7 @@
 export default {
   data(){
     return{
-      term:"Search",
+      term:"",
     }
   },
   props:{
